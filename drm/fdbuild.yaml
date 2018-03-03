@@ -1,0 +1,14 @@
+modules:
+- /
+
+plugins:
+  build: make
+  configure: autoconf
+  source: git
+
+install:
+  path: /opt/drm
+  sudo: true
+
+source:
+  origin: git://anongit.freedesktop.org/mesa/drm

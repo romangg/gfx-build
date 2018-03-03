@@ -1,0 +1,12 @@
+install:
+  path: /opt/mesa
+  sudo: true
+
+modules:
+- mesa
+- demos
+
+plugins:
+  build: make
+  configure: autoconf
+  source: git

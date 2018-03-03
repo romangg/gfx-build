@@ -1,0 +1,42 @@
+modules:
+- lib/libXfont
+- proto/xorgproto
+- xserver
+- driver/xf86-input-mouse
+- driver/xf86-input-keyboard
+- driver/xf86-input-evdev
+- driver/xf86-input-synaptics
+- driver/xf86-input-libinput
+
+envvars:
+  ACLOCAL:
+    prepend: false
+    value: aclocal -I $ACLOCAL_PATH
+  ACLOCAL_PATH:
+    prepend: true
+    value: '@{$install$path}/share/aclocal'
+  LD_LIBRARY_PATH:
+    prepend: true
+    value: '@{$install$path}/lib'
+  PATH:
+    prepend: true
+    value: '@{$install$path}/bin'
+  PKG_CONFIG_PATH:
+    prepend: true
+    value: '@{$install$path}/lib/pkgconfig:@{$install$path}/share/pkgconfig'
+
+install:
+  path: /opt/xorg
+  sudo: true
+  hooks:
+    pre: sudo mkdir -p @{$install$path}/var/log &&
+      sudo mkdir -p @{$install$path}/share/aclocal &&
+      sudo mkdir -p @{$install$path}/share/X11/xkb/rules &&
+      sudo mkdir -p @{$install$path}/bin &&
+      sudo ln -s /usr/share/X11/xkb/rules/evdev @{$install$path}/share/X11/xkb/rules/evdev &&
+      sudo ln -s /usr/bin/xkbcomp @{$install$path}/bin/xkbcomp
+
+plugins:
+  build: make
+  configure: autoconf
+  source: git

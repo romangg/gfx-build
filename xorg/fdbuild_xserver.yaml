@@ -1,0 +1,12 @@
+configure:
+  options:
+  - --disable-docs
+  - --disable-devel-docs
+  - --enable-xwayland
+  - --enable-xorg
+  - --disable-xvfb
+  - --disable-xnest
+  - --disable-xquartz
+  - --disable-xwin
+source:
+  origin: git://anongit.freedesktop.org/xorg/xserver

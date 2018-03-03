@@ -1,0 +1,14 @@
+modules:
+- wayland
+- wayland-protocols
+- libinput
+- weston
+
+install:
+  path: /opt/wayland
+  sudo: true
+
+plugins:
+  build: make
+  configure: autoconf
+  source: git

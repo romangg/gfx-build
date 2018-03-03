@@ -1,0 +1,10 @@
+source:
+  origin: git://anongit.freedesktop.org/wayland/weston
+
+configure:
+  options:
+    - --disable-setuid-install
+    #- --with-xserver-path=@{$install$path}/bin/Xwayland
+install:
+  hooks:
+    post: mkdir -p ~/.config
