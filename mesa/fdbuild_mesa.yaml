@@ -5,7 +5,7 @@ configure:
   - --enable-dri
   - --enable-dri3
   - --enable-egl
-  #- --enable-llvm
+  - --enable-llvm
   - --enable-gbm
   - --enable-gles1
   - --enable-gles2
@@ -18,18 +18,12 @@ configure:
   - --enable-va
   - --enable-vdpau
   - --enable-shared-glapi
-  #- --enable-llvm-shared-libs
+  - --enable-llvm-shared-libs
   - --enable-libunwind
-
-  #- --libdir=/usr/local/lib/x86_64-linux-gnu
-  #- --libdir=@{$install$path}/lib/x86_64-linux-gnu
-
   - --with-platforms=x11,wayland,drm,surfaceless
-  - --with-dri-drivers=radeon
-  - --with-gallium-drivers=radeonsi
-  #- --with-dri-drivers=i915,i965,radeon,swrast
-  #- --with-gallium-drivers=i915,radeonsi,swrast
-  #- --with-vulkan-drivers=intel,radeon
+  - --with-dri-drivers=i915,i965,radeon,swrast
+  - --with-gallium-drivers=i915,radeonsi,swrast
+  - --with-vulkan-drivers=intel,radeon
 
 source:
   origin: git://anongit.freedesktop.org/mesa/mesa
