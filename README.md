@@ -1,5 +1,5 @@
 # User sessions
-After installation to `/opt/*/` add a file `/opt/env.sh` with:
+Before executing FDBuild add a file `/opt/env.sh` with:
 
 ```
 # reset vars
@@ -48,7 +48,14 @@ Source it in `$HOME/.zshrc` and link it from `$HOME/.config/plasma-workspace/env
 
 # SDDM
 
-Via `sudo systemctl edit [--runtime] sddm.service` add:
+Add in `/etc/sddm.conf`:
+
+```
+[X11]
+ServerPath=/opt/xorg/bin/X
+```
+
+And via `sudo systemctl edit [--runtime] sddm.service` add:
 
 ```
 [Service]
